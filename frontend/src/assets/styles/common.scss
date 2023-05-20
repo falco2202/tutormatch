@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+// root
+$bg-color: rgb(0 21 41);
+$primary-btn-color: #0057d8;
+$font-roboto: 'Roboto', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-roboto;
+}
+
+body {
+  background-color: #fff;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(3 105 161);
+}
+// Header
+.header-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 99;
+
+  .header {
+    position: relative;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+      color: #fff;
+    }
+
+    &__option {
+      font-size: 1.2rem;
+      width: 500px;
+      &-icon {
+        margin-right: 4px;
+        font-size: 1.1rem;
+      }
+    }
+
+    &__notify {
+      display: flex;
+      color: #fff;
+      font-weight: 500;
+      justify-content: flex-end;
+      cursor: pointer;
+    }
+    &--dropdown {
+      font-size: 1rem;
+      color: #fff;
+    }
+    span.logout {
+      margin-left: 10px;
+    }
+
+    .nav-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+// Footer
+.footer {
+  height: 230px;
+  background-color: #26272b;
+  padding: 2rem 0 1rem;
+  h3 {
+    text-transform: uppercase;
+  }
+  .copyright {
+    border-top: 2px solid #34363b;
+  }
+  .quick-link {
+    &__list {
+      li {
+        margin: 0.4rem 0;
+      }
+    }
+  }
+  .contact {
+    &__list {
+      li {
+        margin: 0.4rem 0;
+      }
+    }
+  }
+  .social-icon {
+    &__item {
+      font-size: 1.2rem;
+      color: #7c7c7c;
+      background-color: #34363b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-left: 0.25rem;
+      border-radius: 1.5rem;
+    }
+  }
+}
+
+.content {
+  margin-top: 80px;
+  min-height: calc(100vh - 310px);
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(120deg, #12c2e9 0%, #c471ed 100%);
+}
+
+.register__form {
+  width: 700px;
+  min-height: 500px;
+  background-color: #fff;
+  border-radius: 12px;
+  &-title {
+    background-image: linear-gradient(120deg, #c471ed 0%, #12c2e9 100%);
+  }
+}
+
+// Custom antd component
+.custom-avatar-upload {
+  &[size='320'] {
+    .ant-upload-select {
+      width: 320px !important;
+      height: 320px !important;
+    }
+  }
+}
+
+.table-hide-expandable {
+  .ant-table-row-expand-icon {
+    display: none;
+  }
+}
+
+.table-hover {
+  .ant-table-row {
+    cursor: pointer;
+  }
+}
+
+.table-none-background-header {
+  .ant-table-column-sorters {
+    background-color: unset !important;
+    .ant-table-column-title {
+      background-color: unset !important;
+    }
+  }
+}
+
+.ant-table-thead * {
+  background: #c8e6ff !important;
+}
+
+.search__container {
+  min-height: 500px;
+  background: linear-gradient(rgb(3 105 161), rgba(22, 211, 236, 0.57)),
+    url('https://www.ecourses.vn/wp-content/uploads/2020/08/background1.jpg')
+      center top no-repeat;
+  padding-bottom: 2rem;
+}
+
+.list__classroom {
+  font-family: $font-roboto;
+
+  &-card {
+    cursor: pointer;
+    transition: all 0.25s;
+    background-color: #fff;
+    border-radius: 8px;
+    &:hover {
+      z-index: 11;
+      transform: scale(1.02);
+    }
+  }
+  &-img {
+    width: 100%;
+    aspect-ratio: 14/9;
+  }
+  &-content {
+    height: 100%;
+  }
+  &-items {
+    box-shadow: 1px 1px 0 0 #ccc;
+  }
+}
+
+.message-list {
+  height: calc(750px - 10rem);
+  overflow-y: auto;
+}
+
+.chat-list {
+  height: calc(750px - 5rem);
+  overflow-y: auto;
+}
+
+.notification__title {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0px 1px 0px 0px #ebebeb;
+  margin-bottom: 2px;
+}
+
+.notification__list {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  &-item {
+    border-bottom: 1px solid #ebebeb;
+    width: 300px;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    padding: 10px 2px;
+    &-text {
+      flex: 1;
+      max-width: 250px;
+
+      &-title {
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 0 !important;
+      }
+
+      &-content {
+        margin-bottom: 0 !important;
+      }
+
+      &-time-ago {
+        font-style: italic;
+      }
+    }
+
+    &.unread {
+      background-color: #d4d9e1;
+    }
+  }
+  :hover {
+    background-color: #f6f6f6;
+  }
+  :hover .notification__list-item-text-title {
+    color: #3b90e9;
+  }
+}
+
+// default button
+.default-btn {
+  color: #a8a8a8;
+  height: 40px;
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #a8a8a8;
+  border-radius: 1rem;
+  cursor: pointer;
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.classroom__detail {
+  box-shadow: 1px 1px 0 0 #e7e7e7;
+}
+
+.description {
+  &__item {
+    padding: 6px 7px;
+    border: 1px solid #d3d3d3;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+}
+
+.form__search {
+  background: linear-gradient(rgb(3 105 161), rgba(3, 106, 161, 0.795));
+}
+
+.form__handle {
+  margin: 2.5rem 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #ccc;
+  border-radius: 1rem;
+}
+
+//form align right
+.form-right-align {
+  .ant-form-item {
+    .ant-form-item-label {
+      text-align: start;
+    }
+  }
+}
+
+.message-item {
+  max-width: 90%;
+  min-width: 300px;
+  padding-bottom: 1rem;
+  &__right {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
+    &--text {
+      background: #0369a1;
+      padding: 7px 10px;
+      width: fit-content;
+      border-radius: 10px 0 10px 10px;
+      color: #fff;
+      text-align: left;
+      display: inline-block;
+    }
+  }
+  &__left {
+    &--text {
+      background: #e5e5e5;
+      padding: 7px 10px;
+      border-radius: 0px 10px 10px 10px;
+      width: fit-content;
+      display: inline-block;
+    }
+  }
+}
+
+.form__feedback .ant-form-item-label {
+  display: none;
+}
+
+.table-hover {
+  tbody {
+    tr {
+      :hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+// TODO_BETA: fake color list calendar
+.list_class {
+  &::before {
+    content: '■';
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1em;
+  }
+  &--red {
+    color: red;
+  }
+  &--blue {
+    color: #0369a1;
+  }
+  &--purple {
+    color: purple;
+  }
+}
+//detail notification
+
+.detail__notification {
+  &-title {
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 2rem;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 1px 1px 2px #ccc;
+    font-family: $font-roboto;
+  }
+  &-content {
+    border-radius: 0 0 12px 12px;
+    background: url('@/assets/images/bg-detailNotify.png') no-repeat right #fcfcfc;
+    box-shadow: 1px 1px 2px #ccc;
+  }
+  &-text {
+    font-family: $font-roboto;
+  }
+}
+
+.checkbox-margin-none {
+  .ant-checkbox-wrapper {
+    margin-left: 0 !important;
+  }
+}

@@ -1,0 +1,63 @@
+version: '3.2'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    tty: true
+    container_name: ${COMPOSE_PROJECT_NAME}_app
+    hostname: app
+    working_dir: /var/www
+    expose:
+      - 9000
+    volumes:
+      - ./:/var/www:cached
+      - ./:/var/run/php-fpm/
+      - ./docker/config/xdebug.ini:/etc/php-8.1.d/15-xdebug.ini
+    links:
+      - database
+      - redis
+
+  nginx:
+    image: nginx:stable
+    container_name: ${COMPOSE_PROJECT_NAME}_nginx
+    tty: true
+    expose:
+      - "80"
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www:cached
+      # - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./docker/logs:/var/log/nginx/
+    depends_on:
+      - app
+
+  # The Database
+  database:
+    image: mysql:5.7
+    container_name: ${COMPOSE_PROJECT_NAME}_db
+    platform: linux/x86_64
+    volumes:
+      - ./docker/mysql_data:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=${DB_DATABASE}"
+      - "MYSQL_ROOT_PASSWORD=${DB_PASSWORD}"
+    expose:
+      - "3306"
+    ports:
+      - 3307:3306
+
+  # Redis
+  redis:
+    image: redis:alpine
+    container_name: ${COMPOSE_PROJECT_NAME}_redis
+    command: redis-server --appendonly yes --requirepass "${REDIS_PASSWORD}"
+    volumes:
+    - ./docker/redis_data:/data
+    ports:
+      - "8002:6379"
+    expose:
+      - "6379"
