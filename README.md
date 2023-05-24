@@ -1,4 +1,4 @@
-# tutormatch
+# Tutor Match
 TutorMatch - Website kết nối gia sư và phụ huynh
 
 ## Tech stack: 
